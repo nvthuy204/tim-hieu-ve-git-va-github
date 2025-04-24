@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bài thực hành 6</title>
+
+    <script>
+        function thucHien() {
+            var chuoiNoiDung = document.getElementById('txtNgaysinh').value;
+            if (chuoiNoiDung == "") {
+                alert("Bạn cần nhập dữ liệu!");
+                document.getElementById("txtNgaysinh").focus();
+                return;
+            }
+            var mangNoiDung = chuoiNoiDung.split("/");
+
+            var ngay = mangNoiDung[0];
+            var thang = mangNoiDung[1];
+
+            var cung = document.getElementById('txtCung');
+            cung.value = xacDinhCung(ngay, thang)
+        }
+
+        function xacDinhCung(ngay, thang) {
+            if ((thang == 3 && ngay >= 21) || (thang == 4 && ngay <= 19)) {
+                return "Bạch Dương";
+            } else if ((thang == 4 && ngay >= 20) || (thang == 5 && ngay <= 20)) {
+                return "Kim Ngưu";
+            } else if ((thang == 5 && ngay >= 21) || (thang == 6 && ngay <= 21)) {
+                return "Song Tử";
+            } else if ((thang == 6 && ngay >= 22) || (thang == 7 && ngay <= 22)) {
+                return "Cự Giải";
+            } else if ((thang == 7 && ngay >= 23) || (thang == 8 && ngay <= 22)) {
+                return "Sư Tử";
+            } else if ((thang == 8 && ngay >= 23) || (thang == 9 && ngay <= 22)) {
+                return "Xử Nữ";
+            } else if ((thang == 9 && ngay >= 23) || (thang == 10 && ngay <= 23)) {
+                return "Thiên Bình";
+            } else if ((thang == 10 && ngay >= 24) || (thang == 11 && ngay <= 21)) {
+                return "Bọ Cạp";
+            } else if ((thang == 11 && ngay >= 22) || (thang == 12 && ngay <= 21)) {
+                return "Nhân Mã";
+            } else if ((thang == 12 && ngay >= 22) || (thang == 1 && ngay <= 19)) {
+                return "Ma Kết";
+            } else if ((thang == 1 && ngay >= 20) || (thang == 2 && ngay <= 18)) {
+                return "Bảo Bình";
+            } else if ((thang == 2 && ngay >= 19) || (thang == 3 && ngay <= 20)) {
+                return "Song";
+            }
+        }
+
+        function resetForm() {
+            Form.reset();
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <form id="Form" action="">
+            <table>
+                <tr>
+                    <td>
+                        <label for="txtNgaysinh">Ngày sinh</label>
+                        <input type="date" id="txtNgaysinh" name="txtNgaysinh">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="ddlCung">Cung</label>
+                        <input type="text" id="txtCung" name="txtCung">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Xem" onclick="thucHien()">
+                        <input type="button" value="Xoá" onclick="resetForm()">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
